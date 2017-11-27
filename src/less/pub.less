@@ -1,0 +1,134 @@
+/*
+* 全局
+*/
+
+* {
+    // font-family: "monospace", "Consolas", "Microsoft YaHei", "STHeitiSC-Medium";
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    &:focus {
+        outline: none;
+    }
+}
+
+body, html, p, input, textarea {
+    padding: 0;
+    margin: 0;
+}
+
+i {
+    font-style: normal;
+}
+
+a, a:link, a:visited, a:active, a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vertical-align() {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.before() {
+    &:before {
+        content: "";
+        width: 0;
+        height: 1px;
+        display: block;
+    }
+}
+
+.after() {
+    &:after {
+        content: "";
+        width: 0;
+        height: 1px;
+        display: block;
+    }
+}
+
+.clear() {
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        display: block;
+        clear: both;
+    }
+}
+
+.middle() {
+    &:after {
+        content: "";
+        width: 0;
+        height: 100%;
+        .vertical-align;
+    }
+}
+
+.border-radius(@radius: 3px) {
+    border-radius: @radius;
+}
+
+.transition(@all: all .5s) {
+    transition: @all;
+    -webkit-transition: @all;
+}
+
+.transform(@s) {
+    transform: @s;
+    -webkit-transform: @s;
+}
+
+.set-flex() {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: flex !important;
+}
+
+.flex(@i: 1) {
+    -webkit-box-flex: @i;
+    -webkit-flex: @i;
+    flex: @i;
+}
+
+.flex-v() {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.inline-block() {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+.size(@w: 0, @h: 0) {
+    width: @w;
+    height: @h;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .5);
+}

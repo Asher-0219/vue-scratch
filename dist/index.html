@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>双十一刮刮乐</title>
+    <link rel="stylesheet" href="https://appfile.xys.ren/public/css/font.css">
+    
+</head>
+
+<body id="index" style="display: none" :class="{'ios': ios}">
+    <nav>
+        <i class="fa fa-angle-left" @click="back(0)"></i>
+        <span class="title">双十一刮刮乐</span>
+        <img class="refresh" @click="refresh" src="img/refresh.png">
+    </nav>
+    <div class="alert">请登录！</div>
+    <div class="header">
+        <div class="scratch">
+            <div class="sc-see">
+                <div class="scrath-title">在线支付成功即增加两次抽卡机会</div>
+                <div class="sc-num">您总共有<span>{{mySurplus}}</span>次刮奖机会</div>
+            </div>
+            <div class="sc-area">
+            </div>
+            <div class="barrage">
+                <img src="./img/result-title.png">
+                <ul>
+                    <li v-if="barrageList" v-for="v in barrageList"><span>{{v.nickname}}</span>抽中了 <span style="color: #ffe823">{{v.address}}</span></li>
+                    <li style="line-height: 0.38rem;" v-if="!barrageList">暂无抽奖信息！</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bar-record" @click="showRecord=!showRecord">查看中奖纪录></div>
+    </div>
+    <div class="footer-img">
+        <img src="./img/1.png">
+        <img src="./img/2.png">
+    </div>
+    <div class="placeholder" v-show="fixed"></div>
+    <div class="ch-toast" style="display: none">
+        <p>
+            您还没有抽到卡片
+        </p>
+    </div>
+    <!-- 中奖纪录 -->
+    <div class="cover" v-show="showRecord">
+        <div class="record">
+            <img class="record-close" @click="showRecord=!showRecord" src="./img/close.png">
+            <div class="record-list">
+                <div class="record-overflow">
+                    <div class="record-item" v-for="item in myBarrageList">
+                        <img :src="'img/'+ (item.giftId-2)*11 +'.png'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- js -->
+    <script src="https://appfile.xys.ren/public/js/vue.min.js" charset="utf-8"></script>
+    <script src="https://appfile.xys.ren/public/js/jquery.min.js" charset="utf-8"></script>
+    
+    <script src="index-985825fbe3.js" charset="utf-8"></script>
+</body>
+
+</html>

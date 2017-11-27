@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+	<title>更多商品</title>
+	<link rel="stylesheet" href="http://appfile.xys.ren/public/css/font.css">
+	
+</head>
+<body style="display: none" :class="{'ios': ios}">
+	<nav>
+	    <i class="fa fa-angle-left" @click="back"></i>
+	    <span class="title">更多商品</span>
+	</nav>
+	<div class="goods">
+		<div class="head-img">
+			<img class="banner" :src="moreGoods.img" alt="">
+		</div>
+	    <ul class="condom list condoms">
+	        <li v-for="x in moreGoods.goodslist" style="{{x.ou}}">
+	            <div class="box" @click="openId(x.goods_id)">
+	                <img class="img" src="img/loading.jpg" data-lazy="{{x.goods_img}}" alt="">
+	            </div>
+	            <div class="goods-info" @click="openId(x.goods_id)">
+	            	<div class="name">{{x.goods_name}}</div>
+	            	<div class="price">抢购价&nbsp;&nbsp;{{x.shop_price}}元</div>
+	            </div>
+	        </li>
+	    </ul>
+	    <div class="loading-more" style="width: 60px;margin:0 auto;display: none"><img src="img/loading-more.svg" alt=""></div>
+	    <div id="prompt">没有更多内容了！</div>
+	</div>
+
+	<!-- js -->
+	<script src="http://appfile.xys.ren/public/js/vue.min.js" charset="utf-8"></script>
+	<script src="http://appfile.xys.ren/public/js/jquery.min.js" charset="utf-8"></script>
+	<script src="index-985825fbe3.js" charset="utf-8"></script>
+</body>
+</html>
